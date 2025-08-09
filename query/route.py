@@ -10,6 +10,11 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
+@app.route("/")
+def index():
+    return "Flask app is running on Vercel!"
+
+
 @app.route('/hackrx/run', methods=['POST'])
 def question():
     if request.is_json:
